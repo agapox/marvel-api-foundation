@@ -10,18 +10,12 @@ body {
 h1, h2, h3, h4 ,h5, h6, p {font-family: 'Roboto', sans-serif;}
 
 header {
+  height: 80px;
+  background-color: #2D2727;
   -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
-}
-
-header, nav{
-  height: 80px;
-}
-
-nav {
-  background-color: #2D2727;
-  padding: 1em 0 0.5em 0;
+  padding: 10px 0;
 }
 
 #main-container{
@@ -35,6 +29,11 @@ aside, section {
 
 .marvel-logo-img {
   max-height: 60px;
+}
+
+.search-character-form {
+  max-width: 600px;
+  padding: 5px 0;
 }
 
 .group-items {
@@ -255,5 +254,35 @@ footer>div {
 }
 
 .char-comics-section {
+
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+  .search-character-form #search-character {
+    font-size: 0.9em !important;
+  }
+  .search-character-form button {
+    font-size: 1.2em !important;
+  }
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {
 
 }

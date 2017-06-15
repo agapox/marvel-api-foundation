@@ -1,2 +1,4 @@
 # marvel-apil-foundation
-Vistas de API con Foundation
+## Autor: José Agapito Ramírez
+
+Views of Marvels API With Foundation Zurb

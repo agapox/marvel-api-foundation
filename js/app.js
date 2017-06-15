@@ -81,18 +81,42 @@ $(document).foundation().
           comicsCont += '<div class="char-comics-section row columns">';
           comicsCont += '<div class="row">';
           comicsCont += '<div class="small-6 columns">';
-          comicsCont += comicsArray4[0];
+
+          if (comicsArray4[0]) {
+            comicsCont += comicsArray4[0];
+          } else {
+            comicsCont += '<p id="char-comic-1-charid' + mainData[i].id + '" class="comics-title">Comming soon</p>'
+          }
+
           comicsCont += '</div>'; // div.small-6.columns
           comicsCont += '<div class="small-6 columns">';
-          comicsCont += comicsArray4[1];
+
+          if (comicsArray4[1]) {
+            comicsCont += comicsArray4[1];
+          } else {
+            comicsCont += '<p id="char-comic-1-charid' + mainData[i].id + '" class="comics-title">Comming soon</p>'
+          }
+
           comicsCont += '</div>'; // div.small-6.columns
           comicsCont += '</div>'; // div.row
           comicsCont += '<div class="row">';
           comicsCont += '<div class="small-6 columns">';
-          comicsCont += comicsArray4[2];
+
+          if (comicsArray4[2]) {
+            comicsCont += comicsArray4[2];
+          } else {
+            comicsCont += '<p id="char-comic-1-charid' + mainData[i].id + '" class="comics-title">Comming soon</p>'
+          }
+
           comicsCont += '</div>'; // div.small-6.columns
           comicsCont += '<div class="small-6 columns">';
-          comicsCont += comicsArray4[3];
+
+          if (comicsArray4[3]) {
+            comicsCont += comicsArray4[3];
+          } else {
+            comicsCont += '<p id="char-comic-1-charid' + mainData[i].id + '" class="comics-title">Comming soon</p>'
+          }
+
           comicsCont += '</div>'; // div.small-6.columns
           comicsCont += '</div>'; // div.row
           comicsCont += '</div>'; // div.char-comics-section.row.columns

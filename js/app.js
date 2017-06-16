@@ -1,18 +1,17 @@
 $(document).foundation().
   ready(function() {
-
-
-    var APIUrl = 'http://gateway.marvel.com/v1/public/characters';
+    APIService = 'characters';
+    var APIUrl = 'http://gateway.marvel.com/v1/public/' + APIService;
     var limitCharacters = 10;
     var offsetCharacters = 10;
     $.ajax({
-      method: "GET",
+      method: 'GET',
       url: APIUrl,
       data: {
         ts: '1',
         apikey: '61c7e114cd9c1038685b872564b86355',
         hash: '86fbb35b5d2896b831deedd8ce4774bb',
-        limit:10
+        limit:limitCharacters,
       },
       beforeSend: function(msg){
         $(document).children().hide()
@@ -26,6 +25,7 @@ $(document).foundation().
       .done(function( data ) {
         var mainData = data.data.results; // Array of Characters
 
+        // Create de Characters Grid
         for (i = 0; i < mainData.length; i++) {
 
           // Character Main Container
@@ -54,12 +54,20 @@ $(document).foundation().
           } else {
             mediaCont += '<p id="char-description-' + mainData[i].id + '" class="card-char-description">Coming soon</p>';
           }
-          mediaCont += '<button id="char-btn-' + mainData[i].id + '" class="cad-more-btn" type="button" name="button">view more</button>';
+          mediaCont += '<button id="char-btn-' + mainData[i].id + '" data-open="exampleModalB-' + mainData[i].id + '" class="cad-more-btn" type="button" name="button">view more</button>';
           mediaCont += '</div>';
 
           mediaCont += '</div>';
 
-          charMainCont.append($(mediaCont));
+          var charInnerMainCont = $('<div></div>');
+          charInnerMainCont.
+            attr({
+              id: 'character-inner-cont-' + mainData[i].id,
+              class: 'character-inner-cont columns'
+            })
+
+          charInnerMainCont.append($(mediaCont));
+
 
           // Character Related Comics Container
           var comicsCont = '<div class="row comics-cont">';
@@ -71,7 +79,7 @@ $(document).foundation().
           var listComics = mainData[i].comics.items; // Array of Comics
           var comicsArray4 = [];
           for (j = 0; j < listComics.length; j++) {
-            comicsArray4.push('<p id="char-comic-'+ (j+1) + '-charid' + mainData[i].id + '" class="comics-title">' + listComics[j].name + '</p>');
+            comicsArray4.push('<a modal="' + mainData[i].id + '" data-open="exampleModal-' + mainData[i].id + '"><p id="char-comic-'+ (j+1) + '-charid' + mainData[i].id + '" class="comics-title">' + listComics[j].name + '</p></a>');
             if (j === 3) {
               break
             } else {
@@ -85,7 +93,7 @@ $(document).foundation().
           if (comicsArray4[0]) {
             comicsCont += comicsArray4[0];
           } else {
-            comicsCont += '<p id="char-comic-1-charid' + mainData[i].id + '" class="comics-title">Comming soon</p>'
+            comicsCont += '<p id="char-comicId-1-charId' + mainData[i].id + '" class="comics-title">Comming soon</p>'
           }
 
           comicsCont += '</div>'; // div.small-6.columns
@@ -122,18 +130,91 @@ $(document).foundation().
           comicsCont += '</div>'; // div.char-comics-section.row.columns
 
           comicsCont += '</div>'; // div.row.comics-cont
-          charMainCont.append($(comicsCont));
+          charInnerMainCont.append($(comicsCont));
 
-          charMainCont.fadeIn(800);
+          charMainCont.
+            append(charInnerMainCont).
+              fadeIn(800);
 
-          $('#characters-list').append(charMainCont);
+          $('#characters-list').
+            append(charMainCont);
 
 
-          console.log((i+1) + '.- ' + mainData[i].name + '. Comics # ' + mainData[i].comics.available);
-          console.log('Descripción: ' + mainData[i].description);
+          //console.log((i+1) + '.- ' + mainData[i].name + '. Comics # ' + mainData[i].comics.available);
+          //console.log('Descripción: ' + mainData[i].description);
+
+        } // End for Create de Characters Grid
 
 
-        } // for
+        // Click for Modal Popup
+        $('a[modal]').click(function() {
+
+
+          var idMarvelCharacter = $(this).attr('modal');
+
+          APIService = 'characters/' + idMarvelCharacter;
+          var APIUrl = 'http://gateway.marvel.com/v1/public/' + APIService;
+          var limitCharacters = 4;
+          $.ajax({
+            method: 'GET',
+            url: APIUrl,
+            data: {
+              ts: '1',
+              apikey: '61c7e114cd9c1038685b872564b86355',
+              hash: '86fbb35b5d2896b831deedd8ce4774bb',
+              limit: limitCharacters
+            },
+            beforeSend: function(msg){
+
+
+            },
+            success: function(msg){
+
+
+            }
+          })
+            .done(function( data ) {
+              var indexComic = 0;
+              var characterComics = data.data.results[0].comics.items; // Array of Characters Comics
+              //console.log(characterComics);
+
+            })
+
+          //console.log($(this).attr('modal'));
+
+          var modalCont = $('div[modal]').attr('id', 'exampleModal-' + $(this).attr('modal')).
+          attr('style','max-width:840px;');
+
+          // Add Comic to Favorites
+          $('#add-comic-fav').click(function() {
+            $(this).toggleClass('add-comics-selected')
+            $(this).children().toggle().attr({
+              src: 'icons/btn-favourites-primary.png',
+              'style': 'display:inline-block;'
+            },{
+              src: 'icons/btn-favourites-default.png',
+              'style': 'display:inline-block;'
+            })
+
+            console.log(comicsArray4);
+
+            //$('#my-favorites').append(characterComics[0].name)
+          }) // end Click #add-comic-fav
+
+
+
+        }); // End modal function
+
+        // Button View More
+        for (i = 0; i < mainData.length; i++) {
+
+          $('div[modal|=view-more-modal]').click(function() {
+            console.log('clic view more');
+
+          });
+
+        } // end for Button View More
+
 
       }) // done
 

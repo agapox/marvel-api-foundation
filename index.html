@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/foundation.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400" rel="stylesheet">
   <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
@@ -60,14 +60,65 @@
 
         </div><!-- End div.characters-list -->
 
+        <div id="pagination" class="pagination-cont columns">
+
+
+        </div><!-- End div.characters-list -->
+
+        <div modal="comic-modal" class="large reveal modal-cont" id="exampleModal1" data-reveal>
+
+          <div class="row modal-inner-cont">
+            <button class="close-button" data-close aria-label="Close reveal" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="row columns modal-inner-cont-2">
+
+              <div class="small-12 medium-5 columns text-center">
+                <img class="comic-modal-img" src="https://i.annihil.us/u/prod/marvel/i/mg/f/50/593994896476e/detail.jpg" alt="">
+              </div>
+
+              <div class="small-12 medium-7 columns">
+                <h5 class="modal-comic-title">ZOMBIES ASSEMBLE (2017) #3</h5>
+                <p class="modal-comic-summary">
+                  The outbreak is spreading, and two of Earth's Mightiest
+                  Heroes have been infected! Captain America, Hawkeye and
+                  Iron Man venture out into the zombie-filled streets to
+                  stem the tide, while Bruce Banner and Dr. Amano race to
+                  find a cure — and one of them will make a shocking sacrifice
+                  to test its effectiveness! Will another Avenger succumb to
+                  the virus? Where did the outbreak originate? The thrills
+                  continue as the original manga is adapted into English for
+                  the first time!
+                </p>
+              </div>
+
+            </div>
+            <div class="row columns add-buy-cont">
+              <div id="add-comic-fav" class="add-comics small-6 columns text-center">
+                <img class="add-buy-img" src="./icons/btn-favourites-default.png" alt="">
+                <span class="add-selection">Add to favorites</span>
+              </div>
+              <div class="buy-comics small-6 columns text-center">
+                <img class="add-buy-img" src="./icons/shopping-cart-primary.png" alt="">
+                <span class="buy-selection">Buy for <span class="comic-price">$ 3.99</span></span>
+              </div>
+          </div>
+
+          </div>
+
+          <div modal="view-more-modal" class="large reveal modal-cont" id="exampleModalB" data-reveal>
+          </div>
+
+        </div>
+
       </section>
 
       <aside class="right-container columns small-12 medium-12 large-3" data-equalizer-watch="main-section">
         <div class="small-12 small-centered text-center">
           <img class="aside-title-icon" src="./icons/btn-favourites-primary.png" alt="" />
-          <h3 class="aside-title">My favourites</h3>
+          <h3 class="aside-title">My favorites</h3>
         </div>
-        <div class="small-12 small-centered text-center">
+        <div id="my-favorites" class="small-12 small-centered text-center">
           Listado de comics favoritos
         </div>
       </aside>

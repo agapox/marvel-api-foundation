@@ -174,16 +174,8 @@ aside {
 }
 
 .character-img-cont{
-  position: relative;
-  width: 200px;
-  height: 200px;
-  overflow: hidden;
-  border-radius: 50%;
   margin-top: -1.3em;
-  margin-left: -1.7em;
-  -webkit-box-shadow: 2px 1px 7px 0px rgba(134, 134, 134, 0.75);
-  -moz-box-shadow: 2px 1px 7px 0px rgba(134, 134, 134, 0.75);
-  box-shadow: 2px 1px 7px 0px rgba(134, 134, 134, 0.75);
+  margin-left: -3em;
 }
 
 .card-character-img {
@@ -191,6 +183,11 @@ aside {
   height: 200px;
   border-radius: 100px;
   overflow: visible;
+  position: relative;
+  border-radius: 50%;
+  -webkit-box-shadow: 2px 1px 7px 0px rgba(134, 134, 134, 0.75);
+  -moz-box-shadow: 2px 1px 7px 0px rgba(134, 134, 134, 0.75);
+  box-shadow: 2px 1px 7px 0px rgba(134, 134, 134, 0.75);
 }
 
 .cad-more-btn {
@@ -223,8 +220,13 @@ aside {
 }
 
 .character-cont {
-  background-color: #fff;
   margin-bottom: 3em;
+}
+.character-inner-cont {
+  background-color: #fff;
+}
+
+.character-cont > .row {
 }
 
 footer {
@@ -257,6 +259,100 @@ footer>div {
 .char-comics-section {
 
 }
+
+/* Modal Popup */
+
+.add-buy-cont {
+  height: 70px;
+}
+
+.add-buy-img {
+  margin: 0 0.3em;
+  vertical-align:middle;
+}
+
+.add-comics, .buy-comics {
+  text-transform: uppercase;
+  font-weight: bolder;
+  margin: 0;
+  padding: 1em 0;
+  cursor: pointer;
+}
+.add-comics {
+  color: #2d2626;
+  background-color: #F0F0F0;
+}
+
+.add-comics-selected {
+  color: #EC1D23;
+  background-color: #322827;
+}
+
+.buy-comics {
+  background-color: #DCDCDC;
+  color: #EC1D23;
+}
+
+.add-selection, .buy-selection {
+  vertical-align: middle;
+}
+
+.comic-modal-img {
+  height: 400px;
+  width: auto;
+  padding-bottom: 1em;
+}
+
+.modal-cont {
+  background-color: transparent;
+  border: 0;
+}
+
+.reveal, .modal-cont{
+  max-width: 810px;
+
+}
+
+.modal-cont {
+
+}
+
+
+.modal-inner-cont {
+  background-color: #fff;
+  padding-top: 3em;
+}
+
+.modal-inner-cont-2 {
+  padding-bottom: 1em;
+}
+
+.close-button {
+  border-radius: 50%;
+  background-color: #2D2727;
+  color: #fff;
+  margin: 20px;
+}
+
+.close-button > span {
+  padding: 10px 7px;
+  font-weight: bolder;
+}
+
+.modal-comic-title {
+  font-weight: bolder;
+  letter-spacing: 1px;
+  color:#3E3232;
+  text-transform: uppercase;
+}
+
+.modal-comic-summary {
+  color:#3E3232;
+  font-size: 0.9em;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 100;
+}
+
 
 /* Small only */
 @media screen and (max-width: 39.9375em) {

@@ -174,16 +174,8 @@ aside {
 }
 
 .character-img-cont{
-  position: relative;
-  width: 200px;
-  height: 200px;
-  overflow: hidden;
-  border-radius: 50%;
   margin-top: -1.3em;
-  margin-left: -1.7em;
-  -webkit-box-shadow: 2px 1px 7px 0px rgba(134, 134, 134, 0.75);
-  -moz-box-shadow: 2px 1px 7px 0px rgba(134, 134, 134, 0.75);
-  box-shadow: 2px 1px 7px 0px rgba(134, 134, 134, 0.75);
+  margin-left: -2em;
 }
 
 .card-character-img {
@@ -191,6 +183,15 @@ aside {
   height: 200px;
   border-radius: 100px;
   overflow: visible;
+  position: relative;
+  border-radius: 50%;
+  -webkit-box-shadow: 2px 1px 7px 0px rgba(134, 134, 134, 0.75);
+  -moz-box-shadow: 2px 1px 7px 0px rgba(134, 134, 134, 0.75);
+  box-shadow: 2px 1px 7px 0px rgba(134, 134, 134, 0.75);
+}
+
+.card-character-description {
+  float:left!important;
 }
 
 .cad-more-btn {
@@ -209,7 +210,8 @@ aside {
 }
 
 .comics-cont {
-  height: 150px;
+  min-height: 150px;
+  margin-top: 20px;
 }
 
 .comics-title {
@@ -221,9 +223,20 @@ aside {
   font-family: 'Poppins', sans-serif;
 }
 
+a .comics-title:hover {
+  color: #EC1D23;
+}
+
 .character-cont {
-  background-color: #fff;
   margin-bottom: 3em;
+}
+.character-inner-cont {
+  background-color: #fff;
+  margin: 1.5em 0;
+  height: 350px;
+}
+
+.character-cont > .row {
 }
 
 footer {
@@ -257,6 +270,129 @@ footer>div {
 
 }
 
+/* Modal Popup */
+
+.add-buy-cont {
+  height: 70px;
+}
+
+.add-buy-img {
+  margin: 0 0.3em;
+  vertical-align:middle;
+}
+
+.add-comics, .buy-comics {
+  text-transform: uppercase;
+  font-weight: bolder;
+  margin: 0;
+  padding: 1em 0;
+  cursor: pointer;
+}
+.add-comics {
+  color: #2d2626;
+  background-color: #F0F0F0;
+}
+
+.add-comics-selected {
+  color: #EC1D23;
+  background-color: #322827;
+}
+
+.buy-comics {
+  background-color: #DCDCDC;
+  color: #EC1D23;
+}
+
+.add-selection, .buy-selection {
+  vertical-align: middle;
+}
+
+.comic-modal-img {
+  height: 400px;
+  width: auto;
+  padding: 1em;
+}
+
+.modal-cont {
+  background-color: #fff;
+  border: 0;
+}
+
+.reveal, .modal-cont{
+  max-width: 810px;
+
+}
+
+.modal-cont {
+  max-width: 800px !important;
+
+}
+
+.modal-inner-cont {
+  background-color: #fff;
+  padding-top: 3em;
+}
+
+.modal-inner-cont-2 {
+  padding-bottom: 1em;
+}
+
+.close-button {
+  border-radius: 50%;
+  background-color: #2D2727;
+  color: #fff;
+  margin: 10px;
+}
+
+.close-button > span {
+  padding: 10px 7px;
+  font-weight: bolder;
+}
+
+.modal-comic-title {
+  font-weight: bolder;
+  letter-spacing: 1px;
+  color:#3E3232;
+  text-transform: uppercase;
+}
+
+.modal-comic-summary {
+  color:#3E3232;
+  font-size: 0.9em;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 100;
+}
+
+.character-modal-inner {
+  background-color: #fff;
+  padding: 3em;
+}
+
+.modal-img-char{
+  margin: 2em;
+}
+
+.comic-show-cont {
+  padding:0;
+  max-width: 800px !important;
+  overflow: hidden;
+}
+
+.comic-show-cont p {
+  color: #786e6d;
+  font-size: 1em;
+  height: 1.5em;
+  font-family: 'Poppins', sans-serif;
+}
+
+.comic-show-cont h4 {
+  font-weight: bolder;
+  letter-spacing: 1px;
+  color:#3E3232;
+  text-transform: uppercase;
+}
+
+
 /* Small only */
 @media screen and (max-width: 39.9375em) {
   .search-character-form #search-character {
@@ -264,6 +400,22 @@ footer>div {
   }
   .search-character-form button {
     font-size: 1.2em !important;
+  }
+  .card-char-description  {
+    height: auto;
+  }
+  .character-img-cont {
+    margin: -1em 0 1em 0;
+    text-align: center;
+  }
+  .characters-list-cont {
+    padding: 0;
+  }
+  .card-char-name {
+    text-align: center;
+  }
+  .character-inner-cont {
+    height: auto;
   }
 }
 

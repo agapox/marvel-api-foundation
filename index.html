@@ -13,10 +13,10 @@
 </head>
 <body>
 
-  <div id="page-wrapper" class="">
+  <div id="page-wrapper" class="row expanded">
 
-    <header>
-      <nav>
+    <header class="row expanded">
+      <nav class="row expanded">
         <div class="row expanded">
           <div class="small-5 medium-3 large-2 columns">
             <img class="marvel-logo-img" src="https://i.annihil.us/u/prod/misc/marvel.svg" alt="">
@@ -56,60 +56,59 @@
           </div>
         </div>
 
+
         <div id="characters-list" class="characters-list-cont columns">
+
+
+            <div id="char-container" class="character-outer-cont small-12 large-6 columns">
+
+              <div class="character-inner-cont small-12">
+
+                <div id="" class="row img-name-descr-cont">
+
+                  <div id="char-img-cont" class="character-img-cont small-12 medium-6 columns">
+                    <img class="card-character-img" src="" alt="">
+                  </div><!-- End div#character-img-cont -->
+                  <div id="name-description" class="card-character-description small-12 medium-6 columns">
+                    <h5 class="card-char-name"></h5>
+                    <p class="card-char-description"></p>
+                    <button class="cad-more-btn">View more</button>
+                  </div><!-- End div#name-description -->
+
+                </div><!-- End div.row contains img, name and description -->
+
+                <div class="row comics-cont">
+                  <div class="row">
+                    <div class="columns">
+                      <h5 class="details-title">Related Comics</h5>
+                    </div>
+                  </div>
+                  <div class="char-comics-section row columns">
+
+                  </div><!-- End div.char-comics-section -->
+                </div><!-- End div.comics-cont -->
+
+              </div><!-- End div.character-inner-cont -->
+
+            </div><!-- End div#char-outer-cont -->
+
 
         </div><!-- End div.characters-list -->
 
         <div id="pagination" class="pagination-cont columns">
+          <ul class="pagination text-center" role="navigation" aria-label="Pagination">
+            <li class="pagination-previous disabled">Previous</li>
+            <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
+            <li><a href="#" aria-label="Page 2">2</a></li>
+            <li><a href="#" aria-label="Page 3">3</a></li>
+            <li><a href="#" aria-label="Page 4">4</a></li>
+            <li class="ellipsis"></li>
+            <li><a href="#" aria-label="Page 12">12</a></li>
+            <li><a href="#" aria-label="Page 13">13</a></li>
+            <li class="pagination-next"><a href="#" aria-label="next-page">Next</a></li>
+          </ul>
+        </div><!-- End div#pagination -->
 
-
-        </div><!-- End div.characters-list -->
-
-        <div modal="comic-modal" class="large reveal modal-cont" id="exampleModal1" data-reveal>
-
-          <div class="row modal-inner-cont">
-            <button class="close-button" data-close aria-label="Close reveal" type="button">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <div class="row columns modal-inner-cont-2">
-
-              <div class="small-12 medium-5 columns text-center">
-                <img class="comic-modal-img" src="https://i.annihil.us/u/prod/marvel/i/mg/f/50/593994896476e/detail.jpg" alt="">
-              </div>
-
-              <div class="small-12 medium-7 columns">
-                <h5 class="modal-comic-title">ZOMBIES ASSEMBLE (2017) #3</h5>
-                <p class="modal-comic-summary">
-                  The outbreak is spreading, and two of Earth's Mightiest
-                  Heroes have been infected! Captain America, Hawkeye and
-                  Iron Man venture out into the zombie-filled streets to
-                  stem the tide, while Bruce Banner and Dr. Amano race to
-                  find a cure — and one of them will make a shocking sacrifice
-                  to test its effectiveness! Will another Avenger succumb to
-                  the virus? Where did the outbreak originate? The thrills
-                  continue as the original manga is adapted into English for
-                  the first time!
-                </p>
-              </div>
-
-            </div>
-            <div class="row columns add-buy-cont">
-              <div id="add-comic-fav" class="add-comics small-6 columns text-center">
-                <img class="add-buy-img" src="./icons/btn-favourites-default.png" alt="">
-                <span class="add-selection">Add to favorites</span>
-              </div>
-              <div class="buy-comics small-6 columns text-center">
-                <img class="add-buy-img" src="./icons/shopping-cart-primary.png" alt="">
-                <span class="buy-selection">Buy for <span class="comic-price">$ 3.99</span></span>
-              </div>
-          </div>
-
-          </div>
-
-          <div modal="view-more-modal" class="large reveal modal-cont" id="exampleModalB" data-reveal>
-          </div>
-
-        </div>
 
       </section>
 
@@ -125,7 +124,7 @@
 
     </div><!-- End div.main-container -->
 
-    <footer>
+    <footer class="row expanded">
 
       <div class="row expanded">
         <div class="small-9 columns">
@@ -141,6 +140,51 @@
       </div><!-- End div.row.expanded -->
 
     </footer>
+
+    <div modal="character-modal" class="large reveal modal-cont" class="reveal" id="exampleModalB" data-reveal>
+      <div class="character-modal-inner row">
+        <div id="modal-img-char-cont" class="small-12 medium-6 columns">
+          <img id="modal-img-char" src="" alt="">
+        </div>
+        <div id="modal-name-desc-char" class="small-12 medium-6 columns">
+          <h4 class=""></h4>
+        </div>
+        <div id="modal-comis-list" class="small-12 columns">
+
+        </div>
+      </div>
+    </div><!-- Modal for view more info button => info about character-->
+
+
+    <div class="reveal large comic-show-cont" id="exampleModal1C" data-reveal>
+      <div class="row modal-inner-cont">
+        <div class="columns">
+          <div class="small-12 medium-5 columns">
+            <img class="comic-modal-img" src="" alt="">
+          </div>
+          <div class="small-12 medium-7 columns">
+            <h4></h4>
+            <p class="modal-comic-summary"></p>
+          </div>
+        </div>
+        <div class="row columns add-buy-cont">
+          <div id="add-comic-fav" class="add-comics small-6 columns text-center">
+            <img class="add-buy-img" src="./icons/btn-favourites-default.png" alt="">
+            <span class="add-selection">Add to favorites</span>
+          </div>
+          <div class="buy-comics small-6 columns text-center">
+            <img class="add-buy-img" src="./icons/shopping-cart-primary.png" alt="">
+            <span class="buy-selection">Buy for <span class="comic-price">$ 3.99</span></span>
+          </div>
+        </div>
+
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+      </div>
+    </div>
+
 
   </div>
 

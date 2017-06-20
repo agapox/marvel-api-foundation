@@ -175,7 +175,7 @@ aside {
 
 .character-img-cont{
   margin-top: -1.3em;
-  margin-left: -3em;
+  margin-left: -2em;
 }
 
 .card-character-img {
@@ -188,6 +188,10 @@ aside {
   -webkit-box-shadow: 2px 1px 7px 0px rgba(134, 134, 134, 0.75);
   -moz-box-shadow: 2px 1px 7px 0px rgba(134, 134, 134, 0.75);
   box-shadow: 2px 1px 7px 0px rgba(134, 134, 134, 0.75);
+}
+
+.card-character-description {
+  float:left!important;
 }
 
 .cad-more-btn {
@@ -206,7 +210,7 @@ aside {
 }
 
 .comics-cont {
-  height: 150px;
+  min-height: 150px;
   margin-top: 20px;
 }
 
@@ -219,11 +223,17 @@ aside {
   font-family: 'Poppins', sans-serif;
 }
 
+a .comics-title:hover {
+  color: #EC1D23;
+}
+
 .character-cont {
   margin-bottom: 3em;
 }
 .character-inner-cont {
   background-color: #fff;
+  margin: 1.5em 0;
+  height: 350px;
 }
 
 .character-cont > .row {
@@ -300,11 +310,11 @@ footer>div {
 .comic-modal-img {
   height: 400px;
   width: auto;
-  padding-bottom: 1em;
+  padding: 1em;
 }
 
 .modal-cont {
-  background-color: transparent;
+  background-color: #fff;
   border: 0;
 }
 
@@ -314,9 +324,9 @@ footer>div {
 }
 
 .modal-cont {
+  max-width: 800px !important;
 
 }
-
 
 .modal-inner-cont {
   background-color: #fff;
@@ -331,7 +341,7 @@ footer>div {
   border-radius: 50%;
   background-color: #2D2727;
   color: #fff;
-  margin: 20px;
+  margin: 10px;
 }
 
 .close-button > span {
@@ -353,6 +363,35 @@ footer>div {
   font-weight: 100;
 }
 
+.character-modal-inner {
+  background-color: #fff;
+  padding: 3em;
+}
+
+.modal-img-char{
+  margin: 2em;
+}
+
+.comic-show-cont {
+  padding:0;
+  max-width: 800px !important;
+  overflow: hidden;
+}
+
+.comic-show-cont p {
+  color: #786e6d;
+  font-size: 1em;
+  height: 1.5em;
+  font-family: 'Poppins', sans-serif;
+}
+
+.comic-show-cont h4 {
+  font-weight: bolder;
+  letter-spacing: 1px;
+  color:#3E3232;
+  text-transform: uppercase;
+}
+
 
 /* Small only */
 @media screen and (max-width: 39.9375em) {
@@ -361,6 +400,22 @@ footer>div {
   }
   .search-character-form button {
     font-size: 1.2em !important;
+  }
+  .card-char-description  {
+    height: auto;
+  }
+  .character-img-cont {
+    margin: -1em 0 1em 0;
+    text-align: center;
+  }
+  .characters-list-cont {
+    padding: 0;
+  }
+  .card-char-name {
+    text-align: center;
+  }
+  .character-inner-cont {
+    height: auto;
   }
 }
 

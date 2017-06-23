@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Marvel API</title>
   <link rel="stylesheet" href="css/foundation.css">
+  <link rel="stylesheet" href="css/auto-complete.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400" rel="stylesheet">
@@ -24,14 +25,17 @@
           <div class="small-7 medium-9 large-8 columns">
             <div class="small-12 small-centered">
               <form class="search-character-form float-center">
-                <div class="group-items">
-                  <input type="search" id="search-character" placeholder="Search characters..." />
+                <div class="group-items small-12">
+                  <input id="search-character" placeholder="Search character..." type="text" autocomplete="off" name="nameStartsWith"/>
                   <button class="icon"><i class="fa fa-search"></i></button>
+                  <div id="search-autocomplete" class="small-12">
+                  </div>
                 </div>
               </form>
             </div><!-- End div.small-9.medium-9.large-7.columns -->
           </div><!-- End div.small-9.medium-9.large-7.columns -->
           <div class="large-offset-2 columns">
+          </div>
         </div><!-- End div.row.expanded -->
       </nav>
     </header>
@@ -95,19 +99,19 @@
 
         </div><!-- End div.characters-list -->
 
-        <div id="pagination" class="pagination-cont columns">
+        <div id="pagination" class="row">
           <ul class="pagination text-center" role="navigation" aria-label="Pagination">
-            <li class="pagination-previous disabled">Previous</li>
-            <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
+            <li class="disabled"><a href="#" aria-label="Previus Page"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+            <li><a href="#" aria-label="Page 1">1</a></li>
             <li><a href="#" aria-label="Page 2">2</a></li>
             <li><a href="#" aria-label="Page 3">3</a></li>
             <li><a href="#" aria-label="Page 4">4</a></li>
             <li class="ellipsis"></li>
             <li><a href="#" aria-label="Page 12">12</a></li>
             <li><a href="#" aria-label="Page 13">13</a></li>
-            <li class="pagination-next"><a href="#" aria-label="next-page">Next</a></li>
-          </ul>
-        </div><!-- End div#pagination -->
+            <li class=""><a href="#" aria-label="Next page"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+          </ul><!-- End div#pagination -->
+        </div>
 
 
       </section>
@@ -117,8 +121,14 @@
           <img class="aside-title-icon" src="./icons/btn-favourites-primary.png" alt="" />
           <h3 class="aside-title">My favorites</h3>
         </div>
-        <div id="my-favorites" class="small-12 small-centered text-center">
-          Listado de comics favoritos
+        <div id="selected-comic-container" class="row">
+          <div id="my-favorites" class="small-12 small-centered text-center">
+            <div id="" class="fav-comic-cont small-10 small-centered text-center">
+              <img class="icon-delete-comic" onclick="deleteFavComic(this)" src="icons/btn-delete.png" alt="">
+              <img class="modal-comic-img" src="" alt="">
+              <h6 class="modal-comic-name"></h6>
+            </div>
+          </div>
         </div>
       </aside>
 
@@ -144,16 +154,20 @@
     <div modal="character-modal" class="large reveal modal-cont" class="reveal" id="exampleModalB" data-reveal>
       <div class="character-modal-inner row">
         <div id="modal-img-char-cont" class="small-12 medium-6 columns">
-          <img id="modal-img-char" src="" alt="">
+          <img id="modal-img-char" class="modal-char-img" src="" alt="">
         </div>
-        <div id="modal-name-desc-char" class="small-12 medium-6 columns">
-          <h4 class=""></h4>
-        </div>
-        <div id="modal-comis-list" class="small-12 columns">
-
+        <div class="small-12 medium-6 columns modal-inner-info">
+          <div id="modal-name-desc-char" class="small-12 columns">
+            <h4 class="modal-char-name"></h4>
+            <p class="modal-char-description"></p>
+          </div>
+          <div id="modal-comis-list" class="small-12 columns">
+            <h6 class="modal-char-name">Related Comics</h6>
+            <div class="small-12"></div>
+          </div>
         </div>
       </div>
-    </div><!-- Modal for view more info button => info about character-->
+    </div><!-- End Modal VIEW MORE button => Show info about selected character -->
 
 
     <div class="reveal large comic-show-cont" id="exampleModal1C" data-reveal>
@@ -169,28 +183,34 @@
         </div>
         <div class="row columns add-buy-cont">
           <div id="add-comic-fav" class="add-comics small-6 columns text-center">
-            <img class="add-buy-img" src="./icons/btn-favourites-default.png" alt="">
-            <span class="add-selection">Add to favorites</span>
+            <img class="add-comic-img" src="./icons/btn-favourites-default.png" alt="">
+            <!-- <span class="star-icon-marvel-outer"><span class="star-icon-marvel-inner"><i class="fa fa-star" aria-hidden="true"></i></span></span> --><span class="add-selection">Add to favorites</span>
           </div>
           <div class="buy-comics small-6 columns text-center">
             <img class="add-buy-img" src="./icons/shopping-cart-primary.png" alt="">
             <span class="buy-selection">Buy for <span class="comic-price">$ 3.99</span></span>
           </div>
         </div>
-
         <button class="close-button" data-close aria-label="Close modal" type="button">
           <span aria-hidden="true">&times;</span>
         </button>
-
       </div>
-    </div>
+    </div><!-- End Modal COMIC anchor => Show info about selected comic -->
 
 
-  </div>
+  </div><!-- End div.page-wrapper -->
 
   <script src="js/vendor/jquery.js"></script>
   <script src="js/vendor/what-input.js"></script>
   <script src="js/vendor/foundation.js"></script>
+  <script src="js/vendor/auto-complete.min.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/indexShow.js"></script>
+  <script src="js/pagination.js"></script>
+  <script src="js/searchChar.js"></script>
+  <script src="js/comicSelected.js"></script>
+  <script src="js/myFavs.js"></script>
+  <script src="js/characters/char.js"></script>
+  <script src="js/comics/comics.js"></script>
 </body>
 </html>

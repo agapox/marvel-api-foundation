@@ -34,6 +34,7 @@ aside, section {
 .search-character-form {
   max-width: 600px;
   padding: 5px 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 .group-items {
@@ -107,7 +108,7 @@ aside, section {
 }
 
 .left-cont-main-title {
-  padding-bottom: 3em;
+  padding-bottom: 1em;
 }
 
 .section-title-icon{
@@ -124,7 +125,7 @@ aside, section {
 
 .sort-by-select {
   max-width: 300px;
-  max-height: 60px;
+  height: 60px;
   border-radius: 2px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -204,6 +205,11 @@ aside {
   cursor: pointer;
 }
 
+.cad-more-btn:hover {
+  background-color: #ff0000;
+}
+
+
 .details-title {
   font-weight: bolder;
   color: #786e6d;
@@ -274,6 +280,19 @@ footer>div {
 
 .add-buy-cont {
   height: 70px;
+  display: block;
+
+}
+
+.add-fav-img {
+  margin: 0 0.3em;
+  vertical-align:middle;
+  background-image: url('../icons/btn-favourites-default.png');
+}
+
+.add-comic-img {
+  margin: 0 0.3em;
+  vertical-align:middle;
 }
 
 .add-buy-img {
@@ -298,6 +317,32 @@ footer>div {
   background-color: #322827;
 }
 
+.modal-comic-name {
+  color: #2d2626;
+  font-weight: bolder;
+  margin: 1em;
+}
+
+.fav-comic-cont {
+  position: relative;
+}
+
+.trash-comic {
+  display: block;
+  margin-top: -5px;
+  text-align: right;
+}
+
+.icon-delete-comic{
+  position: absolute;
+  top: -15px;
+  right: 20px;
+}
+
+.modal-comic-img {
+  padding: 0 2em;
+}
+
 .buy-comics {
   background-color: #DCDCDC;
   color: #EC1D23;
@@ -313,23 +358,73 @@ footer>div {
   padding: 1em;
 }
 
-.modal-cont {
-  background-color: #fff;
-  border: 0;
+.modal-char-img {
+  -webkit-box-shadow: 4px 4px 8px 3px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 4px 4px 8px 3px rgba(0, 0, 0, 0.6);
+  box-shadow: 4px 4px 8px 3px rgba(0, 0, 0, 0.6);
+  border-radius: 2px;
 }
 
-.reveal, .modal-cont{
-  max-width: 810px;
+.modal-char-name {
+  font-weight: bolder;
+  color: #ff043a;
+  text-transform: uppercase;
+}
 
+.modal-char-description  {
+  color: #dcdcdc;
+  font-size: 0.9em;
+  line-height: 1.5;
+  content:"\02026";
+  font-family: 'Poppins', sans-serif;
+}
+
+.modal-comics-title {
+  color: #d0d0d0;
+  overflow:hidden;
+  font-size: 0.85em;
+  font-family: 'Poppins', sans-serif;
+  padding-left: 1px;
+}
+
+.reveal {
+  max-width: 810px;
+  border: 0;
+
+}
+
+.star-icon-marvel-inner {
+  background-color: #413536;
+  color: #F0F0F0;
+  border-radius: 50%;
+  padding: 6px 7px;
+  font-size: 11px;
+  margin: 5px;
+}
+
+.star-icon-marvel-outer {
+  background-color: transparent;
+  border-radius: 50%;
+  padding: 8px 1px 10px 1px;
+  border: 5px solid #413536;
+  margin: 5px;
 }
 
 .modal-cont {
   max-width: 800px !important;
+  background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/type.png');
+  border-radius: 2px;
 
 }
 
+.modal-inner-info {
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 3px;
+  padding: 2em 1em;
+}
+
 .modal-inner-cont {
-  background-color: #fff;
+  background-color: transparent;
   padding-top: 3em;
 }
 
@@ -364,7 +459,7 @@ footer>div {
 }
 
 .character-modal-inner {
-  background-color: #fff;
+  background-color: transparent;
   padding: 3em;
 }
 
@@ -375,7 +470,7 @@ footer>div {
 .comic-show-cont {
   padding:0;
   max-width: 800px !important;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .comic-show-cont p {
@@ -392,6 +487,27 @@ footer>div {
   text-transform: uppercase;
 }
 
+.pagination .current {
+
+}
+
+.pagination li {
+  background-color: #FCFCFC;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 0.6em;
+  height: 50px;
+  width: 50px;
+
+}
+
+.pagination li .fa {
+  vertical-align: baseline;
+}
+
+.pagination .disabled {
+
+}
 
 /* Small only */
 @media screen and (max-width: 39.9375em) {
@@ -415,6 +531,9 @@ footer>div {
     text-align: center;
   }
   .character-inner-cont {
+    height: auto;
+  }
+  .sort-by-select {
     height: auto;
   }
 }

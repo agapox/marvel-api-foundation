@@ -1,10 +1,9 @@
 $('#my-favorites').hide();
-var myFavoritesComics = []
 var index = 0;
+var myFavoritesComics = []
 var addFavComic = function(objComic) {
   var myFavs = $('#my-favorites').clone();
-  objComic = objComic.data.results[0]
-  console.log(objComic);
+  objComic// = objComic.data.results[0]
   myFavoritesComics.push(objComic)
 
   index++;
@@ -19,6 +18,8 @@ var addFavComic = function(objComic) {
   .html(objComic.title)
   myFavs.fadeIn(800);
   $('#selected-comic-container').append(myFavs);
+
+  console.log(myFavoritesComics);
 }
 
 var deleteFavComic = function(mainFavComicCont) {
@@ -26,4 +27,17 @@ var deleteFavComic = function(mainFavComicCont) {
 
   mainFavComicCont.remove();
 
+}
+
+
+var localStorage = function() {
+  // Check browser support
+  if (typeof(Storage) !== "undefined") {
+    // Store
+    localStorage.setItem("lastname", "Smith");
+    // Retrieve
+    document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+  } else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+  }
 }

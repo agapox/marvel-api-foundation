@@ -191,6 +191,34 @@ aside {
   box-shadow: 2px 1px 7px 0px rgba(134, 134, 134, 0.75);
 }
 
+.character-outer-cont {
+  transition: 0.15s ease;
+
+}
+
+.character-outer-cont:hover {
+  -webkit-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  transform: scale(1.03);
+  transition: 0.15s ease;
+  transition-timing-function: ease-in-out;
+}
+
+.character-inner-cont {
+  background-color: #fff;
+  margin: 1.5em 0;
+  height: 350px;
+  transition: 0.15s ease;
+}
+
+.character-inner-cont:hover {
+  transition: 0.15s ease;
+  transition-timing-function: ease-in-out;
+  -webkit-box-shadow: 1px 7px 18px 1px rgba(183, 181, 181, 0.75);;
+  -moz-box-shadow: 1px 7px 18px 1px rgba(183, 181, 181, 0.75);;
+  box-shadow: 1px 7px 18px 1px rgba(183, 181, 181, 0.75);;
+}
+
 .card-character-description {
   float:left!important;
 }
@@ -221,12 +249,13 @@ aside {
 }
 
 .comics-title {
-  line-height: 1.4;
   color: #786e6d;
   overflow:hidden;
   font-size: 0.8em;
   height: 2.5em;
   font-family: 'Poppins', sans-serif;
+  display: inline-block !important;
+  line-height: 1.4;
 }
 
 a .comics-title:hover {
@@ -235,11 +264,6 @@ a .comics-title:hover {
 
 .character-cont {
   margin-bottom: 3em;
-}
-.character-inner-cont {
-  background-color: #fff;
-  margin: 1.5em 0;
-  height: 350px;
 }
 
 .character-cont > .row {
@@ -387,6 +411,17 @@ footer>div {
   padding-left: 1px;
 }
 
+
+
+.comics-title-active {
+  color: #ff043a;
+  background-image: url('../icons/link-arrow.png');
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: 18px;
+  padding-left: 25px;
+}
+
 .reveal {
   max-width: 810px;
   border: 0;
@@ -414,7 +449,18 @@ footer>div {
   max-width: 800px !important;
   background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/type.png');
   border-radius: 2px;
+}
 
+#exampleModalB button {
+  background-color: transparent !important;
+  color: #fff !important;
+  border: 3px solid;
+}
+
+#exampleModalB button:hover {
+  color: #ff043a !important;
+  background-color: transparent !important;
+  border: 3px solid;
 }
 
 .modal-inner-info {
@@ -442,6 +488,11 @@ footer>div {
 .close-button > span {
   padding: 10px 7px;
   font-weight: bolder;
+}
+
+#exampleModal1C button:hover {
+  color: #ff043a !important;
+
 }
 
 .modal-comic-title {
@@ -487,22 +538,72 @@ footer>div {
   text-transform: uppercase;
 }
 
+
+.char-name-comic-selected {
+  color: red;
+}
+
+/* Pagination classes */
+
 .pagination .current {
 
 }
 
 .pagination li {
-  background-color: #FCFCFC;
-  font-size: 1em;
-  font-weight: bold;
-  padding: 0.6em;
-  height: 50px;
   width: 50px;
+  height: 50px;
+  border: 1px solid #dedede;
+  font-size: 1em;
+  vertical-align: bottom;
+  text-align: center;
+  margin: 0 4px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 1px 2px 4px -1px rgba(0,0,0,0.3);
+  -moz-box-shadow: 1px 2px 4px -1px rgba(0,0,0,0.3);
+  box-shadow: 1px 2px 4px -1px rgba(0,0,0,0.3);
+  cursor: pointer;
+}
 
+.pagination li:hover {
+  background-color: #fff;
+}
+
+.pagination li.current {
+  background-color: #fff;
+  border: 0;
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.3);
+  padding: 0;
+}
+
+.pagination li.current button {
+  color: #3D3332;
+}
+
+.pagination li button {
+  margin: 1em auto;
+  color: #C6C2C3;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.pagination li.ellipsis {
+  padding: 0.5em 0;
+}
+
+.pagination .ellipsis::after {
+  color: #C6C2C3;
+  font-weight: bolder;
+}
+
+.pagination li button:hover {
+  background-color: transparent;
+  color: #3D3332;
 }
 
 .pagination li .fa {
-  vertical-align: baseline;
+
 }
 
 .pagination .disabled {
@@ -536,6 +637,7 @@ footer>div {
   .sort-by-select {
     height: auto;
   }
+
 }
 
 /* Medium and up */
@@ -550,7 +652,9 @@ footer>div {
 
 /* Large and up */
 @media screen and (min-width: 64em) {
-
+  aside {
+    width: 25% !important;
+  }
 }
 
 /* Large only */

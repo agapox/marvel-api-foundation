@@ -24,20 +24,59 @@ var addFavComic = function(objComic) {
 
 var deleteFavComic = function(mainFavComicCont) {
   mainFavComicCont = $(mainFavComicCont).parent().parent();
-
   mainFavComicCont.remove();
 
 }
 
+window.onunload = function () {
+  if ($('#selected-comic-container').children().length > 0) {
+    saveDataInLocal();
+  }
+};
 
-var localStorage = function() {
+var saveDataInLocal = function() {
+  var favsItems = $('#selected-comic-container').children();
+  favsItems
   // Check browser support
   if (typeof(Storage) !== "undefined") {
     // Store
-    localStorage.setItem("lastname", "Smith");
-    // Retrieve
-    document.getElementById("result").innerHTML = localStorage.getItem("lastname");
-  } else {
-    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+
+    for (i = 1; i < favsItems.length; i++) {
+      localStorage.setItem( "myFavImgSrc-" + i ,$(favsItems[i]).find('.modal-comic-img').attr('src') )
+      localStorage.setItem( "myFavTitleSrc-" + i ,$(favsItems[i]).find('.modal-comic-name').html() )
+    }
   }
+}
+
+
+window.onload = function () {
+  if (localStorage.length > -1) {
+    setLocalData();
+  }
+};
+var setLocalData = function() {
+  // Check browser support
+  if (typeof(Storage) !== "undefined") {
+    // Retrieve
+    for (i = 0; i < localStorage.length ; i++) {
+      var myFavs = $('#my-favorites').clone();
+
+      myFavs.attr({
+        'id': 'my-favorites-' + [i]
+      });
+
+      myFavs.find('img.modal-comic-img')
+      .attr({
+        'src': localStorage.getItem( "myFavImgSrc-" + (i+1) )
+      })
+      myFavs.find('h6.modal-comic-name')
+      .html(localStorage.getItem( "myFavTitleSrc-" + (i+1) ))
+      myFavs.fadeIn(800);
+      $('#selected-comic-container').append(myFavs);
+
+      localStorage.removeItem( "myFavImgSrc-" + (i+1) )
+      localStorage.removeItem( "myFavTitleSrc-" + (i+1) )
+    }
+  }
+
 }

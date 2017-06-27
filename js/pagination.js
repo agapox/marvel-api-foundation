@@ -52,7 +52,7 @@ var paginationController = function(totalCharacters, offset) {
     first: '←',
     last: '→',
     wrapClass: 'pagination',
-    activeClass: 'active',
+    activeClass: 'current',
     disabledClass: 'disabled',
     nextClass: 'hola',
     prevClass: 'prev',

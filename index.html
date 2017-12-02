@@ -5,6 +5,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Marvel API</title>
+  <link rel="shortcut icon" type="image/png" href="icons/favicon.png"/>
   <link rel="stylesheet" href="css/foundation.css">
   <link rel="stylesheet" href="css/auto-complete.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
@@ -20,13 +21,15 @@
       <nav class="row expanded">
         <div class="row expanded">
           <div class="small-5 medium-3 large-2 columns">
-            <img class="marvel-logo-img" src="https://i.annihil.us/u/prod/misc/marvel.svg" alt="">
+            <a href="index.html">
+              <img class="marvel-logo-img" src="https://i.annihil.us/u/prod/misc/marvel.svg" alt="">
+            </a>
           </div>
           <div class="small-7 medium-9 large-8 columns">
             <div class="small-12 small-centered">
               <form class="search-character-form float-center">
                 <div class="group-items small-12">
-                  <input id="search-character" placeholder="Search character..." type="text" autocomplete="off" name="nameStartsWith"/>
+                  <input id="search-character" placeholder="Search character..." onkeyup="searchCharacter(this.value)" type="text" autocomplete="off" name="nameStartsWith"/>
                   <button class="icon"><i class="fa fa-search"></i></button>
                   <div id="search-autocomplete" class="small-12">
                   </div>
@@ -40,9 +43,10 @@
       </nav>
     </header>
 
-    <div id="main-container" class="row expanded" data-equalizer="main-section">
+    <div id="main-container" class="row expanded" data-equalizer="main-section" data-off-canvas-wrapper>
 
-      <section class="left-container columns small-12 medium-12 large-9" data-equalizer-watch="main-section">
+      <img src="./icons/btn-favourites-primary.png" style="position:fixed; bottom:3vh;right:2vw;" class="hide-for-large text-right" data-toggle="offCanvas">
+      <section class="off-canvas-content left-container columns small-12 medium-12 large-9" data-equalizer-watch="main-section" data-off-canvas-content>
 
         <div class="left-cont-main-title row columns">
           <div class="small-6 columns text-left">
@@ -52,10 +56,12 @@
             </div>
           </div>
           <div class="small-6 columns text-right">
-            <select class="sort-by-select">
+            <select onchange="topTenGood()" class="sort-by-select">
               <option>Sort by</option>
-              <option value="ascendent">Ascendent</option>
-              <option value="descendent">Descendent</option>
+              <option value="good" >The Goods</option>
+              <option value="bad">The Bads</option>
+              <option value="teams">Marvel Teams</option>
+              <option value="women">Marvels Women</option>
             </select>
           </div>
         </div>
@@ -99,24 +105,16 @@
 
         </div><!-- End div.characters-list -->
 
-        <div id="pagination" class="row">
+        <div id="pagination" class="columns">
           <ul class="pagination text-center" role="navigation" aria-label="Pagination">
-            <li class="disabled"><a href="#" aria-label="Previus Page"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
-            <li><a href="#" aria-label="Page 1">1</a></li>
-            <li><a href="#" aria-label="Page 2">2</a></li>
-            <li><a href="#" aria-label="Page 3">3</a></li>
-            <li><a href="#" aria-label="Page 4">4</a></li>
-            <li class="ellipsis"></li>
-            <li><a href="#" aria-label="Page 12">12</a></li>
-            <li><a href="#" aria-label="Page 13">13</a></li>
-            <li class=""><a href="#" aria-label="Next page"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-          </ul><!-- End div#pagination -->
-        </div>
+
+          </ul>
+        </div><!-- End div#pagination -->
 
 
       </section>
 
-      <aside class="right-container columns small-12 medium-12 large-3" data-equalizer-watch="main-section">
+      <aside class="off-canvas position-right off-canvas-absolute reveal-for-large right-container columns small-12 medium-12 large-3" data-equalizer-watch="main-section" id="offCanvas" data-off-canvas data-transition="overlap">
         <div class="small-12 small-centered text-center">
           <img class="aside-title-icon" src="./icons/btn-favourites-primary.png" alt="" />
           <h3 class="aside-title">My favorites</h3>
@@ -150,9 +148,12 @@
       </div><!-- End div.row.expanded -->
 
     </footer>
-
-    <div modal="character-modal" class="large reveal modal-cont" class="reveal" id="exampleModalB" data-reveal>
+    <!-- Modal VIEW MORE button => Show info about selected character -->
+    <div modal="character-modal" class="large reveal modal-cont" class="reveal" id="exampleModalB" data-reveal data-close-on-click="false" data-close-on-esc="false">
       <div class="character-modal-inner row">
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
         <div id="modal-img-char-cont" class="small-12 medium-6 columns">
           <img id="modal-img-char" class="modal-char-img" src="" alt="">
         </div>
@@ -169,8 +170,8 @@
       </div>
     </div><!-- End Modal VIEW MORE button => Show info about selected character -->
 
-
-    <div class="reveal large comic-show-cont" id="exampleModal1C" data-reveal>
+    <!-- Modal COMIC anchor => Show info about selected comic -->
+    <div class="reveal large comic-show-cont" id="exampleModal1C" data-reveal data-close-on-click="false" data-close-on-esc="false" data-reset-on-close="true">
       <div class="row modal-inner-cont">
         <div class="columns">
           <div class="small-12 medium-5 columns">
@@ -204,6 +205,7 @@
   <script src="js/vendor/what-input.js"></script>
   <script src="js/vendor/foundation.js"></script>
   <script src="js/vendor/auto-complete.min.js"></script>
+  <script src="js/vendor/jquery.bootpag.min.js"></script>
   <script src="js/app.js"></script>
   <script src="js/indexShow.js"></script>
   <script src="js/pagination.js"></script>
@@ -212,5 +214,6 @@
   <script src="js/myFavs.js"></script>
   <script src="js/characters/char.js"></script>
   <script src="js/comics/comics.js"></script>
+  <script src="js/characters/optionSelectChars.js"></script>
 </body>
 </html>

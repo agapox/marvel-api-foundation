@@ -9,7 +9,7 @@ var $initialCharsListChildren = $('#characters-list').children()
 
 var init = function(offsetCharacters) {
   var maxNumberofComics = 4;
-  var APIUrl = 'http://gateway.marvel.com/v1/public/';
+  var APIUrl = 'https://gateway.marvel.com/v1/public/';
   var APIService = 'characters';
   var limitCharacters = 10;
 

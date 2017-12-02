@@ -1,4 +1,5 @@
 # marvel-apil-foundation
 ## Autor: José Agapito Ramírez
+### Front End Developer
 
-Views of Marvels API With Foundation Zurb
+WebApp of Marvels characters consuming an API with Foundation Zurb
